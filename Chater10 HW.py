@@ -9,7 +9,7 @@ Add some new key bindings to the first sample program:
     of the window, or to give her new behaviour that can be controlled from the keyboard."""
 
 
-""" 
+
 import turtle
 
 turtle.setup(400,500)                # Determine the window size
@@ -74,11 +74,27 @@ wn.onkey(h10, "c")
 
 wn.listen()
 wn.mainloop()
-"""
+
+
+
 
 
 
 #Question 3
+
+
+
+"In an earlier chapter we saw two turtle methods, hideturtle and showturtle  "
+"that can hide or show a turtle. This suggests that we could take a different "
+"approach to the traffic lights program. Add to your program above as follows: "
+"draw a second housing for another set of traffic lights. Create three separate "
+"turtles to represent each of the green, orange and red lights, and position "
+"them appropriately within your new housing. As your state changes occur, "
+"just make one of the three turtles visible at any time. Once you’ve made the "
+"changes, sit back and ponder some deep thoughts: you’ve now got two different "
+"ways to use turtles to simulate the traffic lights, and both seem to work. Is "
+"one approach somehow preferable to the other? Which one more closely resembles "
+"reality — i.e. the traffic lights in your town?"
 
 
 import turtle
@@ -106,28 +122,37 @@ def draw_housing():
 
 draw_housing()
 
-def green()
+def green():
+    bobgreen.home()
+    bobgreen.penup()
     bobgreen.forward(40)
     bobgreen.left(90)
     bobgreen.forward(50)
+    bobgreen.pendown()
     bobgreen.shape("circle")
     bobgreen.shapesize(3)
     bobgreen.fillcolor("green")
     bobgreen.penup()
 
 
-def orange()
+def orange():
+    boborange.home()
+    boborange.penup()
     boborange.forward(40)
     boborange.left(90)
     boborange.forward(120)
+    boborange.pendown()
     boborange.shape("circle")
     boborange.shapesize(3)
     boborange.fillcolor("orange")
 
-def red()
+def red():
+    bobred.home()
+    bobred.penup()
     bobred.forward(40)
     bobred.left(90)
     bobred.forward(190)
+    bobred.pendown()
     bobred.shape("circle")
     bobred.shapesize(3)
     bobred.fillcolor("red")
@@ -167,8 +192,35 @@ def advance_state_machine():
         tess.fillcolor("green")
         state_num = 0
 
-# Bind the event handler to the space key.
-wn.onkey(advance_state_machine, "space")
+def newmachine():
+    global state_num
+    if state_num == 0:  # Transition from state 0 to state 1
+        bobgreen.st()
+        bobred.ht()
+        boborange.ht()
+        green()
 
-wn.listen()                      # Listen for events
+        state_num = 1
+    elif state_num == 1:  # Transition from state 1 to state 2
+        boborange.st()
+        bobred.ht()
+        bobgreen.ht()
+        orange()
+        state_num = 2
+    else:  # Transition from state 2 to state 0
+        bobred.st()
+        boborange.ht()
+        bobgreen.ht()
+        red()
+        state_num = 0
+
+wn.onkey(advance_state_machine, "space")
+wn.onkey(newmachine, "Up")
+
+wn.listen()
 wn.mainloop()
+
+#the new approach (with three turtles) most closely resembles reality
+#in reality, lights do not change gradually instead they are instantaneous so it would
+#make more sense to use the second approach where individual turtles are responsible for their
+#own light
