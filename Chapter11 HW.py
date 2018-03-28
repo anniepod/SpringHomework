@@ -5,8 +5,17 @@ example, start is greater than stop. What happens if start < stop and step < 0? 
 rule for the relationships among start, stop, and step."""
 
 """
-[start+(1*step), start+(2*step), start+(3*step) ... ] until (n*step) = stop 
+[start+(1*step), start+(2*step), start+(3*step) ... ] until (n*step) = start 
 where n is a whole number integer and n = |start - stop| / step
 """
 
 #Question 2
+"Consider this fragment of code:
+
+import turtle
+
+tess = turtle.Turtle()
+alex = tess
+alex.color("hotpink")
+Does this fragment create one or two turtle instances? Does setting the
+color of alex also change the color of tess? Explain in detail."
