@@ -104,21 +104,37 @@ def draw_housing():
     tess.left(90)
     tess.end_fill()
 
-
 draw_housing()
 
-bobgreen.forward(10)
-bobgreen.left(90)
-bobgreen.forward(80)
-bobgreen.right(90)
-bobgreen.forward(40)
-bobgreen.circle(40)
+def green()
+    bobgreen.forward(40)
+    bobgreen.left(90)
+    bobgreen.forward(50)
+    bobgreen.shape("circle")
+    bobgreen.shapesize(3)
+    bobgreen.fillcolor("green")
+    bobgreen.penup()
+
+
+def orange()
+    boborange.forward(40)
+    boborange.left(90)
+    boborange.forward(120)
+    boborange.shape("circle")
+    boborange.shapesize(3)
+    boborange.fillcolor("orange")
+
+def red()
+    bobred.forward(40)
+    bobred.left(90)
+    bobred.forward(190)
+    bobred.shape("circle")
+    bobred.shapesize(3)
+    bobred.fillcolor("red")
 
 
 tess.penup()
-
-tess.forward(-150 )
-tess.pendown()
+tess.forward(-150)
 
 draw_housing()
 
