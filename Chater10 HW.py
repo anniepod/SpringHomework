@@ -82,8 +82,6 @@ wn.mainloop()
 
 #Question 3
 
-
-
 "In an earlier chapter we saw two turtle methods, hideturtle and showturtle  "
 "that can hide or show a turtle. This suggests that we could take a different "
 "approach to the traffic lights program. Add to your program above as follows: "
