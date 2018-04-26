@@ -9,7 +9,7 @@ Add some new key bindings to the first sample program:
     of the window, or to give her new behaviour that can be controlled from the keyboard."""
 
 
-
+"""
 import turtle
 
 turtle.setup(400,500)                # Determine the window size
@@ -76,7 +76,7 @@ wn.listen()
 wn.mainloop()
 
 
-
+"""
 
 
 
@@ -154,7 +154,9 @@ def red():
     bobred.shape("circle")
     bobred.shapesize(3)
     bobred.fillcolor("red")
-
+green()
+red()
+orange()
 
 tess.penup()
 tess.forward(-150)
@@ -196,20 +198,20 @@ def newmachine():
         bobgreen.st()
         bobred.ht()
         boborange.ht()
-        green()
+        #green()
 
         state_num = 1
     elif state_num == 1:  # Transition from state 1 to state 2
         boborange.st()
         bobred.ht()
         bobgreen.ht()
-        orange()
+        #orange()
         state_num = 2
     else:  # Transition from state 2 to state 0
         bobred.st()
         boborange.ht()
         bobgreen.ht()
-        red()
+        #red()
         state_num = 0
 
 wn.onkey(advance_state_machine, "space")
